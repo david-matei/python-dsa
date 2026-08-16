@@ -21,23 +21,10 @@ class Stack:
     def size(self):
         return len(self.items)
 
+    def clear(self):
+        self.items.clear()
+
+    def contains(self, val):
+        return val in self.items
 
 stack = Stack()
-
-stack.push(5)
-print(stack.items)
-stack.push(6)
-print(stack.items)
-stack.push(7)
-print(stack.items)
-
-print(stack.peek())
-stack.pop()
-print(stack.peek())
-print(stack.items)
-print(stack.is_empty())
-print(stack.size())
-stack.pop()
-stack.pop()
-print(stack.is_empty())
-print(stack.size())

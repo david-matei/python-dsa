@@ -39,10 +39,11 @@ class Stack:
 
     #size
     def size(self):
-        return self.size
+        return self._size
 
     def clear(self):
         self.head = None
+        self._size = 0
 
     def contains(self, val):
         curr = self.head
@@ -52,3 +53,5 @@ class Stack:
             curr = curr.next
 
         return False
+
+stack = Stack()

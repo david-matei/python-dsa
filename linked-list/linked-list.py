@@ -51,6 +51,7 @@ class LinkedList:
         if self.head == self.tail:
             self.head = None
             self.tail = None
+            self.size -= 1
             return
 
         curr = self.head
@@ -62,6 +63,8 @@ class LinkedList:
         self.size -= 1
 
     def get_at_index(self, index):
+        if index < 0 or index >= self.size:
+            return None
         curr = self.head
         i = 0
         while curr is not None:
@@ -69,7 +72,6 @@ class LinkedList:
                 return curr.val
             curr = curr.next
             i+=1
-        return "Invalid input"
 
     def insert_at_index(self, index, value):
         if index < 0 or index > self.size:
@@ -109,18 +111,13 @@ class LinkedList:
         if index < 0 or index >= self.size:
             return
 
-        if self.head is None:
-            return
-
         if self.head == self.tail:
-            self.head = None
-            self.tail = None
+            self.head = self.tail = None
             self.size -= 1
             return
 
         if index == 0:
-            self.head = self.head.next
-            self.size -= 1
+            self.remove_first()
             return
 
         curr = self.head
